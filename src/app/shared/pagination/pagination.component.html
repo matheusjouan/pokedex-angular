@@ -1,0 +1,13 @@
+<ul class="pagination">
+  <li>
+    <button (click)="setPage(currentPage - 1)" [ngClass]="{'blocked': currentPage === 1}">«</button>
+  </li>
+  <li *ngFor="let item of pages">
+    <button
+      (click)="setPage(item)"
+      [ngClass]="{'active': item === currentPage}"
+      >{{ item }}</button>
+  </li>
+  <li><button (click)="setPage(currentPage + 1)" [ngClass]="{'blocked': currentPage === totalPages}">»</button></li>
+</ul>
+

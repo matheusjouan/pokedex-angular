@@ -1,0 +1,41 @@
+<main>
+
+  <ng-template [ngIf]="isLoading">
+    <div class="pokemon__names slideInRight">
+      <h1>{{ pokemon[0].name }}</h1>
+      <h2>{{ pokemon[1].names[0].name }}</h2>
+    </div>
+
+    <div class="pokemon__status">
+      <img
+        [src]="pokemon[0].sprites.other.dream_world.front_default"
+        [alt]="pokemon[0].name"
+        class="slideInDown"
+        >
+
+        <article class="pokemon__status__statistics fadeIn">
+          <div>
+            <h3>Estatísticas</h3>
+
+            <ol>
+              <li *ngFor="let item of pokemon[0].stats">
+                {{ item.stat.name }}
+                <strong>{{ item.base_stat }}</strong>
+              </li>
+            </ol>
+          </div>
+
+          <button class="btn btn__secondary" (click)="goBack()">Voltar</button>
+
+        </article>
+    </div>
+  </ng-template>
+
+  <img
+    src="assets/images/error.png"
+    alt="Erro na mostragem do pokemon"
+    width="100%"
+    *ngIf="apiError">
+
+</main>
+

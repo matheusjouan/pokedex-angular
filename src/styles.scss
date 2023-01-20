@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import './styles/main.scss';
+
+html {
+  background-color: var(--primary-color);
+  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  max-width: rem-calc(600);
+  margin: 0 auto;
+  box-sizing: border-box;
+}

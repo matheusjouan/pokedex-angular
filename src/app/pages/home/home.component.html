@@ -1,0 +1,25 @@
+<main *ngIf="!isLoading">
+
+  <app-spinner *ngIf="isLoading; else pokemonList"></app-spinner>
+
+  <ng-template #pokemonList>
+
+    <ng-template [ngIf]="!apiError">
+      <poke-search (emmitSearch)="getPokemonNameSearch($event)"></poke-search>
+      <poke-list [pokemonsList]="pokemons"></poke-list>
+    </ng-template>
+
+    <img
+      src="assets/images/error.png"
+      alt="Erro na mostragem do pokemon"
+      width="100%"
+      *ngIf="apiError">
+
+    <app-pagination
+      [pageProps]="paginationProps"
+      (emitEventChangePage)="setOffsetPage($event)"
+    ></app-pagination>
+  </ng-template>
+</main>
+
+
